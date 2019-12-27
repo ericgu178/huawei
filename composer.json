@@ -1,0 +1,19 @@
+{
+    "name": "ericgu178/huawei",
+    "description": "华为云封装的接口",
+    "type": "library",
+    "authors": [
+        {
+            "name": "ericgu178",
+            "email": "ericgu178@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "huawei\\": "./"
+        }
+    }
+}
