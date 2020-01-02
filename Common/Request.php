@@ -1,6 +1,6 @@
 <?php
-namespace Huawei\Common;
-use \Huawei\Tools\Request as tool;
+namespace huawei\Common;
+use \huawei\Tools\Request as tool;
 // use \Huawei\OpenPlatform\AccessToken\ServiceProvider as token;
 
 class Request

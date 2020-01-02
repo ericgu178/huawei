@@ -4,18 +4,18 @@
  * Author:Ericgu178
  * 百度开放接口
  */
-namespace Huawei;
+namespace huawei;
 
 class Huawei
 {
     static public function init($name,array $config)
     {
         $namespace = self::title($name);
-        $index = "\\Huawei\\{$namespace}\\Application";
+        $index = "\\huawei\\{$namespace}\\Application";
         if (class_exists($index)) {
             return new $index($config);
         } else {
-            trigger_error("错误Huawei::{$name}，请检查");
+            trigger_error("错误huawei::{$name}，请检查");
         }
     }
 

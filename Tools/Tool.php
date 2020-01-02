@@ -1,5 +1,5 @@
 <?php
-namespace Huawei\Tools;
+namespace huawei\Tools;
 
 class Tool
 {

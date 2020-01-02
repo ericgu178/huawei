@@ -1,5 +1,5 @@
 <?php
-namespace Huawei\Common;
+namespace huawei\Common;
 
 /**
  * 注册器

@@ -9,8 +9,8 @@
  * 
  */
 
-namespace Huawei\HuaweiCloud;
-use \Huawei\Common\Register; 
+namespace huawei\HuaweiCloud;
+use \huawei\Common\Register; 
 
 class Application extends Register
 {
@@ -20,6 +20,6 @@ class Application extends Register
      * @var array
      */
     protected $providers = [
-        \Huawei\HuaweiCloud\FaceFrs\ServiceProvider::class, //人脸识别
+        \huawei\HuaweiCloud\FaceFrs\ServiceProvider::class, //人脸识别
     ];
 }
