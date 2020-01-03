@@ -27,7 +27,7 @@ class Request
     public function execute($url,$request_data = [],$headers = [])
     {
         if (empty($request_data)) {
-            $response = tool::curl_get_https($url);
+            $response = tool::curl_get_https($url,$headers);
         }
         if (!empty($headers)) {
             $response = tool::requestNormalPost($url,$request_data,$headers);

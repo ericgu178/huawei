@@ -1,8 +1,8 @@
 <?php
 /**
- * Date:2019-10-30
+ * Date:2019-12-31
  * Author:Ericgu178
- * 百度开放接口
+ * 华为开放接口
  */
 namespace huawei;
 

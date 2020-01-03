@@ -1,13 +1,20 @@
 <?php
 namespace huawei\Tools;
 /**
- * 工具类
+ * 请求类
  *
  * @author EricGU178
  */
 class Request
 {
-    // post 请求
+    /**
+     * post 请求 兼容带图片
+     *
+     * @param [type] $url
+     * @param [type] $data
+     * @return void
+     * @author EricGU178
+     */
     static public function curl_post_https($url, $data)
     {
         $curl = curl_init();
@@ -55,7 +62,15 @@ class Request
         return $res; // 返回数据
     }
 
-    static public function curl_get_https($url)
+    /**
+     * get 请求
+     *
+     * @param string $url
+     * @param array $headers
+     * @return void
+     * @author EricGU178
+     */
+    static public function curl_get_https($url,$headers = [])
     {
         $curl = curl_init();
         //设置选项，包括URL
@@ -63,7 +78,7 @@ class Request
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 1);//绕过ssl验证
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
-    
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
         //执行并获取HTML文档内容
         $output = curl_exec($curl);
         //释放curl句柄
@@ -80,15 +95,15 @@ class Request
     static public function requestNormalPost(string $url, array $data, array $headers = [])
     {
         $data = json_encode($data);
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
-        curl_setopt($ch, CURLOPT_POST, 1);   // post数据
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);   // post的变量
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        $res = curl_exec($ch);
-        curl_close($ch);
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
+        curl_setopt($curl, CURLOPT_POST, 1);   // post数据
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);   // post的变量
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        $res = curl_exec($curl);
+        curl_close($curl);
         return $res;
     }
 }
